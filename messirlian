@@ -1,0 +1,77 @@
+// src/components/NavBar.js
+import React from "react";
+import CartWidget from "./CartWidget";
+
+const NavBar = () => {
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light p-3">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">Mi Tienda</a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="#">Inicio</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Productos</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Contacto</a>
+            </li>
+          </ul>
+          <CartWidget />
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default NavBar;
+
+// src/components/CartWidget.js
+import React from "react";
+import { FaShoppingCart } from "react-icons/fa";
+
+const CartWidget = () => {
+  return (
+    <div className="cart-widget ms-3">
+      <FaShoppingCart size={24} />
+      <span className="badge bg-primary ms-1">3</span>
+    </div>
+  );
+};
+
+export default CartWidget;
+
+// src/components/ItemListContainer.js
+import React from "react";
+
+const ItemListContainer = ({ mensaje }) => {
+  return (
+    <div className="container mt-4">
+      <h2>{mensaje}</h2>
+      <p>Aquí aparecerán nuestros productos muy pronto.</p>
+    </div>
+  );
+};
+
+export default ItemListContainer;
+
+// src/App.js
+import React from "react";
+import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
+
+function App() {
+  return (
+    <div>
+      <NavBar />
+      <ItemListContainer mensaje="¡Bienvenido a nuestra tienda online!" />
+    </div>
+  );
+}
+
+export default App;
